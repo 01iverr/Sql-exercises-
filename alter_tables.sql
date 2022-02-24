@@ -1,0 +1,11 @@
+ALTER TABLE Calendar ADD PRIMARY KEY (listing_id, date);
+ALTER TABLE Calendar ADD FOREIGN KEY (listing_id) REFERENCES Listings(id);
+ALTER TABLE Listings ADD PRIMARY KEY (id);
+ALTER TABLE Listings ADD FOREIGN KEY (id) REFERENCES Listings_Summary(id);
+ALTER TABLE Listings_Summary ADD PRIMARY KEY (id);
+ALTER TABLE Listings_summary ADD FOREIGN KEY (neighbourhood) REFERENCES Neighbourhoods(neighbourhood);
+ALTER TABLE Neighbourhoods ADD PRIMARY KEY (neighbourhood);
+ALTER TABLE Reviews ADD PRIMARY KEY (id);
+ALTER TABLE Reviews ADD FOREIGN KEY (listing_id) REFERENCES Listings(id);
+ALTER TABLE Reviews_Summary ADD FOREIGN KEY (listing_id) REFERENCES Listings(id);
+ALTER TABLE Geolocation ADD FOREIGN KEY (properties_neighbourhood) REFERENCES Neighbourhoods(neighbourhood);
